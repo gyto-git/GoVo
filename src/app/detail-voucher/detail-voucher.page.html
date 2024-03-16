@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> Detail </ion-title>
+  </ion-toolbar>
+</ion-header>
+<div
+  *ngIf="loading"
+  style="
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+  "
+>
+  <div style="text-align: center; color: grey">
+    <ion-spinner color="tertiary" name="bubbles"></ion-spinner>
+    <p style="text-align: center; margin-top: 3px">please wait</p>
+  </div>
+</div>
+<ion-content color="light" class="ion-padding" *ngIf="!loading">
+  <ion-card class="ion-padding">
+    <img
+      alt="Silhouette of mountains"
+      src="http://localhost:8080/uploads/client/{{data.o_foto}}"
+    />
+    <ion-card-header>
+      <ion-card-title>{{data.o_namaVoucher}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Diambil {{data.o_ambil}}/{{data.o_stokVoucher}}</p>
+      <p>Diklaim {{data.o_klaim}}/{{data.o_ambil}}</p>
+      <p>Berlaku dari tanggal</p>
+      <p>
+        {{data.o_tanggalMulai | date:'dd-MM-yyyy'}} sampai tanggal
+        {{data.o_tanggalAkhir | date:'dd-MM-yyyy'}}
+      </p>
+      <p>Kode QR:</p>
+      <qrcode
+        [qrdata]="qrcode"
+        [width]="256"
+        [errorCorrectionLevel]="'M'"
+      ></qrcode>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

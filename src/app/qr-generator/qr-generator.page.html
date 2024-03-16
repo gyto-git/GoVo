@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>QR Generator</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Generate</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-input label="Qr Code" [(ngModel)]="input"></ion-input>
+      <qrcode
+        [qrdata]="input"
+        [width]="256"
+        [errorCorrectionLevel]="'M'"
+        [allowEmptyString]="true"
+      ></qrcode>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

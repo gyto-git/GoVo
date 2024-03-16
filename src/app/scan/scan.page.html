@@ -1,0 +1,53 @@
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title class="ion-text-center">Scan</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-card *ngIf="data && !loading">
+      <img
+        alt="Silhouette of mountains"
+        src="http://localhost:8080/uploads/client/{{data.o_foto}}"
+      />
+      <ion-card-header>
+        <ion-card-title>{{data.o_namaVoucher}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Berlaku sampai tanggal {{data.o_tanggalAkhir}}
+        <p>Voucher ini dimiliki oleh {{data.user}}</p>
+      </ion-card-content>
+      <ion-button fill="clear" (click)="klaim()">Klaim Voucher ini</ion-button>
+    </ion-card>
+
+    <div
+      *ngIf="loading"
+      style="
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+      "
+    >
+      <div style="text-align: center; color: grey">
+        <ion-spinner color="tertiary" name="bubbles"></ion-spinner>
+        <p style="text-align: center; margin-top: 3px">please wait</p>
+      </div>
+    </div>
+
+    <div id="container" *ngIf="!data">
+      <strong>Silahkan scan Voucher</strong>
+      <p>Klik tombol <ion-icon name="scan"></ion-icon> di pojok kanan bawah</p>
+    </div>
+
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+      <ion-fab-button (click)="scan()" [disabled]="!isSupported">
+        <ion-icon name="scan"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-content>
+</div>

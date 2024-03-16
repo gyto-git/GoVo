@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> Edit Voucher</ion-title>
+  </ion-toolbar>
+</ion-header>
+<div
+  *ngIf="loading"
+  style="
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+  "
+>
+  <div style="text-align: center; color: grey">
+    <ion-spinner color="tertiary" name="bubbles"></ion-spinner>
+    <p style="text-align: center; margin-top: 3px">please wait</p>
+  </div>
+</div>
+
+<ion-content color="light" class="ion-padding" *ngIf="!loading">
+  <ion-list>
+    <ion-item>
+      <ion-input
+        label="Nama Voucher"
+        label-placement="stacked"
+        placeholder="Enter text"
+        [(ngModel)]="input.o_namaVoucher"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        label="Jumlah voucher yang ingin dibagikan"
+        label-placement="stacked"
+        placeholder="Enter text"
+        type="number"
+        [(ngModel)]="input.o_stokVoucher"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        label="Tanggal Voucher dimulai"
+        label-placement="floating"
+        placeholder="Enter text"
+        type="datetime-local"
+        [(ngModel)]="input.o_tanggalMulai"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        label="Tanggal Voucher berakhir"
+        label-placement="floating"
+        placeholder="Enter text"
+        type="datetime-local"
+        [(ngModel)]="input.o_tanggalAkhir"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-input
+            label="Pilih gambar"
+            label-placement="floating"
+            [disabled]="true"
+          ></ion-input>
+        </ion-row>
+        <ion-row>
+          <ion-img [src]="showpict"></ion-img>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-button expand="block" (click)="edit()"> Submit </ion-button>
+  </ion-list>
+</ion-content>

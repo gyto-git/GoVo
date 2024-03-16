@@ -1,0 +1,7 @@
+{
+  "name": "GoVo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
