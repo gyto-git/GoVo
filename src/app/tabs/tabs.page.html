@@ -1,4 +1,4 @@
-<ion-tabs>
+<!-- <ion-tabs>
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="home" href="/tabs/home">
       <ion-icon aria-hidden="true" name="home-outline"></ion-icon>
@@ -33,6 +33,70 @@
       </ion-item>
       <ion-item button detail="true" (click)="logOut()">
         <ion-label> Log Out </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu> -->
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home" href="/tabs/home">
+      <ion-icon aria-hidden="true" name="home-outline"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="scan" href="/tabs/scan">
+      <ion-icon aria-hidden="true" name="scan-outline"></ion-icon>
+      <ion-label>Scan</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="voucher" href="/tabs/voucher">
+      <ion-icon aria-hidden="true" name="ticket-outline"></ion-icon>
+      <ion-label>Inventory</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+
+<ion-menu side="end" contentId="main-content">
+  <ion-content class="ion-padding bg-greeny">
+    <div
+      class="w-64 bg-white shadow-lg rounded-2xl dark:bg-gray-800 mx-auto my-3"
+    >
+      <img
+        alt="profil"
+        src="assets/yellow-green logo.png"
+        class="w-full mb-4 rounded-t-lg h-28"
+      />
+      <div class="flex flex-col items-center justify-center p-4 -mt-16">
+        <a href="#" class="relative block">
+          <img
+            alt="profil"
+            src="assets/yellow-box logo.png"
+            class="mx-auto object-cover rounded-full h-16 w-16 bg-gray-400"
+          />
+        </a>
+        <p class="mt-2 text-xl font-medium text-gray-800 dark:text-white">
+          {{name}}
+        </p>
+        <!-- <p class="flex items-center text-xs text-gray-400">Apa</p> -->
+        <div class="flex items-center justify-between w-full gap-4 mt-8">
+          <button
+            (click)="logOut()"
+            type="button"
+            class="py-2 px-4 bg-greeny hover:bg-greeny focus:bg-greeny text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
+          >
+            Log Out
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <ion-list>
+      <ion-item button detail="true" (click)="qr()">
+        <ion-label>QR Example</ion-label>
+      </ion-item>
+      <ion-item button detail="true" (click)="gen()">
+        <ion-label>QR Generator</ion-label>
       </ion-item>
     </ion-list>
   </ion-content>

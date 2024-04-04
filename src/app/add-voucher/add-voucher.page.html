@@ -8,60 +8,134 @@
 </ion-header>
 
 <ion-content color="light" class="ion-padding">
-  <ion-list>
-    <ion-item>
-      <ion-input
-        label="Nama Voucher"
-        label-placement="stacked"
-        placeholder="Enter text"
-        [(ngModel)]="o_namaVoucher"
-      ></ion-input>
-    </ion-item>
+  <div class="mx-auto max-w-screen-xl px-4 py-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-lg text-center">
+      <p class="mt-4 text-gray-500">Silahkan isi data voucher</p>
+    </div>
 
-    <ion-item>
-      <ion-input
-        label="Jumlah voucher yang ingin dibagikan"
-        label-placement="stacked"
-        placeholder="Enter text"
-        type="number"
-        [(ngModel)]="o_stokVoucher"
-      ></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input
-        label="Tanggal Voucher dimulai"
-        label-placement="floating"
-        placeholder="Enter text"
-        type="datetime-local"
-        [(ngModel)]="o_tanggalMulai"
-      ></ion-input>
-    </ion-item>
+    <div class="mx-auto mb-0 mt-8 max-w-md space-y-4">
+      <div>
+        <label for="email" class="sr-only">Nama Voucher</label>
 
-    <ion-item>
-      <ion-input
-        label="Tanggal Voucher berakhir"
-        label-placement="floating"
-        placeholder="Enter text"
-        type="datetime-local"
-        [(ngModel)]="o_tanggalAkhir"
-      ></ion-input>
-    </ion-item>
+        <div class="relative">
+          <input
+            type="text"
+            class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm bg-white"
+            placeholder="Isi Nama Voucher"
+            [(ngModel)]="o_namaVoucher"
+          />
 
-    <ion-item>
-      <ion-grid>
-        <ion-row>
-          <ion-input
-            label="Pilih gambar"
-            label-placement="floating"
-            [readonly]="true"
-            (click)="ambilfoto()"
-          ></ion-input>
-        </ion-row>
-        <ion-row>
-          <ion-img [src]="showpict"></ion-img>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-    <ion-button expand="block" (click)="kirim()"> Submit </ion-button>
-  </ion-list>
+          <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="size-4 text-gray-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <div>
+        <label class="sr-only" for="message">Deskripsi Voucher</label>
+
+        <textarea
+          class="w-full rounded-lg border-gray-200 p-3 text-sm bg-white"
+          placeholder="Deskripsi Voucher"
+          rows="8"
+          id="message"
+          [(ngModel)]="o_deskripsi"
+        ></textarea>
+      </div>
+
+      <div>
+        <label for="email" class="sr-only">Jumlah Voucher</label>
+
+        <div class="relative">
+          <input
+            type="number"
+            class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm bg-white"
+            placeholder="Jumlah voucher yang ingin dibagikan"
+            [(ngModel)]="o_stokVoucher"
+          />
+
+          <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="size-4 text-gray-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <ion-datetime presentation="date" [(ngModel)]="o_tanggalMulai">
+        <span slot="title">Pilih waktu voucher dimulai</span>
+      </ion-datetime>
+      <hr />
+      <ion-datetime presentation="date" [(ngModel)]="o_tanggalAkhir">
+        <span slot="title">Pilih waktu voucher berakhir</span>
+      </ion-datetime>
+
+      <div class="relative" (click)="ambilfoto()">
+        <input
+          type="text"
+          class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm bg-white"
+          placeholder="Klik untuk memilih gambar voucher"
+          readonly
+        />
+        <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="size-4 text-gray-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+            />
+          </svg>
+        </span>
+      </div>
+      <div class="relative">
+        <img
+          [src]="showpict"
+          class="w-full rounded-lg border-gray-200 p-4 text-sm shadow-sm bg-white"
+        />
+      </div>
+
+      <div class="flex items-center justify-between">
+        <p class="text-sm text-gray-500"></p>
+
+        <button
+          type="submit"
+          class="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
+          (click)="kirim()"
+        >
+          Buat
+        </button>
+      </div>
+    </div>
+  </div>
 </ion-content>

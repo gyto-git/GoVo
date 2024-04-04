@@ -1,1 +1,9 @@
+ion-tab-button {
+  --color-focused: #99e265;
+  --color-selected: #99e265;
+  --ripple-color: #99e265;
+}
 
+ion-menu::part(container) {
+  border-radius: 20px 0 0 20px;
+}

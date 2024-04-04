@@ -12,6 +12,8 @@ import { StorageService } from '../services/storage.service';
 export class TabsPage {
   public environmentInjector = inject(EnvironmentInjector);
   public login: string = '';
+  public name: any;
+  public member: any;
   constructor(
     private navCtrl: NavController,
     private storage: StorageService
@@ -23,6 +25,15 @@ export class TabsPage {
         this.navCtrl.navigateRoot('login');
       }
       this.login = data;
+      this.storage
+        .get('data')
+        .then((data) => {
+          this.name = data.name;
+          this.member = data.member;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     });
   }
 

@@ -62,6 +62,10 @@ export class UpdatePage implements OnInit {
       .then(async (data) => {
         this.data = data;
         this.input = this.data.data;
+        let temp = new Date(this.input.o_tanggalMulai).toISOString();
+        this.input.o_tanggalMulai = temp;
+        temp = new Date(this.input.o_tanggalAkhir).toISOString();
+        this.input.o_tanggalAkhir = temp;
         this.showpict =
           'http://localhost:8080/uploads/client/' + this.input.o_foto;
         console.log(this.input);
@@ -86,7 +90,8 @@ export class UpdatePage implements OnInit {
       id: this.id,
       o_namaVoucher: this.input.o_namaVoucher,
       o_stokVoucher: this.input.o_stokVoucher,
-      o_tanggalMulai: this.input.o_tanggalAkhir,
+      o_deskripsi: this.input.o_deskripsi,
+      o_tanggalMulai: this.input.o_tanggalMulai,
       o_tanggalAkhir: this.input.o_tanggalAkhir,
     };
     let url = 'VoucherOwner/Update';
@@ -113,26 +118,27 @@ export class UpdatePage implements OnInit {
           });
           await alert.present();
         } else {
-          let temp1 = '';
-          let temp2 = '';
-          let temp3 = '';
-          let temp4 = '';
+          let temp = '';
           for (const key in this.data.messages) {
             if (key === 'o_namaVoucher') {
-              temp1 = this.data.messages[key];
+              temp += this.data.messages[key] + '<br>';
             } else if (key === 'o_stokVoucher') {
-              temp2 = this.data.messages[key];
+              temp += this.data.messages[key] + '<br>';
             } else if (key === 'o_tanggalMulai') {
-              temp3 = this.data.messages[key];
+              temp += this.data.messages[key] + '<br>';
             } else if (key === 'o_tanggalAkhir') {
-              temp4 = this.data.messages[key];
+              temp += this.data.messages[key] + '<br>';
+            } else if (key === 'o_deskripsi') {
+              temp += this.data.messages[key] + '<br>';
+            } else if (key === 'img') {
+              temp += this.data.messages[key] + '<br>';
             }
           }
           loading.dismiss();
           const alert = await this.alertController.create({
             header: 'Info',
             backdropDismiss: false,
-            message: temp1 + '<br>' + temp2 + '<br>' + temp3 + '<br>' + temp4,
+            message: `${temp}`,
             buttons: ['Tutup'],
           });
           await alert.present();

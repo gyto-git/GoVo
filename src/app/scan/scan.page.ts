@@ -84,6 +84,14 @@ export class scanPage {
         this.data = this.data.data;
         console.log(this.data);
         this.loading = false;
+        if (this.data == undefined) {
+          const alert = await this.alertController.create({
+            header: 'Error',
+            message: 'Voucher ini bukan punya anda',
+            buttons: ['OK'],
+          });
+          await alert.present();
+        }
       })
       .catch((err) => {
         console.log(err);

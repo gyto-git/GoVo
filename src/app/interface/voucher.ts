@@ -6,6 +6,7 @@ export interface Voucher {
   o_foto: string;
   o_ambil: Number;
   o_klaim: Number;
-  o_tanggalMulai: Date;
-  o_tanggalAkhir: Date;
+  o_tanggalMulai: string;
+  o_tanggalAkhir: string;
+  o_deskripsi: string;
 }

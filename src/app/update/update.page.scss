@@ -1,3 +1,11 @@
 .alert-wrapper.sc-ion-alert-md {
   background: blue !important;
 }
+
+ion-toolbar {
+  --background: #ade783;
+  --color: white;
+
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+}

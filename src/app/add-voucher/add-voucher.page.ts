@@ -22,14 +22,15 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 export class AddVoucherPage {
   o_namaVoucher: any;
   o_stokVoucher: any;
+  o_deskripsi: any;
   o_tanggalMulai: any;
   o_tanggalAkhir: any;
 
   code: any;
   data: any;
 
-  images: any;
-  showpict: any;
+  images: any = '';
+  showpict: any = 'assets/yellow-green logo.png';
 
   constructor(
     private api: ApiService,
@@ -41,7 +42,7 @@ export class AddVoucherPage {
 
   async ambilfoto() {
     const image = await Camera.getPhoto({
-      quality: 90,
+      quality: 50,
       allowEditing: false,
       resultType: CameraResultType.Base64,
       source: CameraSource.Photos,
@@ -76,6 +77,7 @@ export class AddVoucherPage {
       code: this.code,
       o_namaVoucher: this.o_namaVoucher,
       o_stokVoucher: this.o_stokVoucher,
+      o_deskripsi: this.o_deskripsi,
       o_tanggalMulai: this.o_tanggalMulai,
       o_tanggalAkhir: this.o_tanggalAkhir,
       img: this.images,
@@ -104,26 +106,28 @@ export class AddVoucherPage {
           });
           await alert.present();
         } else {
-          let temp1 = '';
-          let temp2 = '';
-          let temp3 = '';
-          let temp4 = '';
+          console.log(this.data.messages);
+          let temp = '';
           for (const key in this.data.messages) {
             if (key === 'o_namaVoucher') {
-              temp1 = this.data.messages[key];
+              temp += this.data.messages[key] + '<br>';
             } else if (key === 'o_stokVoucher') {
-              temp2 = this.data.messages[key];
+              temp += this.data.messages[key] + '<br>';
             } else if (key === 'o_tanggalMulai') {
-              temp3 = this.data.messages[key];
+              temp += this.data.messages[key] + '<br>';
             } else if (key === 'o_tanggalAkhir') {
-              temp4 = this.data.messages[key];
+              temp += this.data.messages[key] + '<br>';
+            } else if (key === 'o_deskripsi') {
+              temp += this.data.messages[key] + '<br>';
+            } else if (key === 'img') {
+              temp += this.data.messages[key] + '<br>';
             }
           }
           loading.dismiss();
           const alert = await this.alertController.create({
             header: 'Info',
             backdropDismiss: false,
-            message: temp1 + '<br>' + temp2 + '<br>' + temp3 + '<br>' + temp4,
+            message: `${temp}`,
             buttons: ['Tutup'],
           });
           await alert.present();
