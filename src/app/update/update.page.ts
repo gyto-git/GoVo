@@ -67,7 +67,7 @@ export class UpdatePage implements OnInit {
         temp = new Date(this.input.o_tanggalAkhir).toISOString();
         this.input.o_tanggalAkhir = temp;
         this.showpict =
-          'http://localhost:8080/uploads/client/' + this.input.o_foto;
+          'https://govo.my.id/uploads/client/' + this.input.o_foto;
         console.log(this.input);
         setTimeout(() => {
           this.loading = false;
@@ -91,6 +91,7 @@ export class UpdatePage implements OnInit {
       o_namaVoucher: this.input.o_namaVoucher,
       o_stokVoucher: this.input.o_stokVoucher,
       o_deskripsi: this.input.o_deskripsi,
+      o_alamat: this.input.o_alamat,
       o_tanggalMulai: this.input.o_tanggalMulai,
       o_tanggalAkhir: this.input.o_tanggalAkhir,
     };
@@ -129,6 +130,8 @@ export class UpdatePage implements OnInit {
             } else if (key === 'o_tanggalAkhir') {
               temp += this.data.messages[key] + '<br>';
             } else if (key === 'o_deskripsi') {
+              temp += this.data.messages[key] + '<br>';
+            } else if (key === 'o_alamat') {
               temp += this.data.messages[key] + '<br>';
             } else if (key === 'img') {
               temp += this.data.messages[key] + '<br>';

@@ -23,6 +23,7 @@ export class AddVoucherPage {
   o_namaVoucher: any;
   o_stokVoucher: any;
   o_deskripsi: any;
+  o_alamat: any;
   o_tanggalMulai: any;
   o_tanggalAkhir: any;
 
@@ -78,6 +79,7 @@ export class AddVoucherPage {
       o_namaVoucher: this.o_namaVoucher,
       o_stokVoucher: this.o_stokVoucher,
       o_deskripsi: this.o_deskripsi,
+      o_alamat: this.o_alamat,
       o_tanggalMulai: this.o_tanggalMulai,
       o_tanggalAkhir: this.o_tanggalAkhir,
       img: this.images,
@@ -118,6 +120,8 @@ export class AddVoucherPage {
             } else if (key === 'o_tanggalAkhir') {
               temp += this.data.messages[key] + '<br>';
             } else if (key === 'o_deskripsi') {
+              temp += this.data.messages[key] + '<br>';
+            } else if (key === 'o_alamat') {
               temp += this.data.messages[key] + '<br>';
             } else if (key === 'img') {
               temp += this.data.messages[key] + '<br>';

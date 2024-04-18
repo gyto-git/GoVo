@@ -6,7 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiService {
   data: any = null;
-  public base_url = 'http://localhost:8080/';
+  // public base_url = 'http://localhost:8080/';
+  public base_url = 'https://govo.my.id/';
   constructor(private http: HttpClient) {}
 
   async send(request: any, url: string) {

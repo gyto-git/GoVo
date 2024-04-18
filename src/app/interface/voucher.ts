@@ -9,4 +9,5 @@ export interface Voucher {
   o_tanggalMulai: string;
   o_tanggalAkhir: string;
   o_deskripsi: string;
+  o_alamat: string;
 }
