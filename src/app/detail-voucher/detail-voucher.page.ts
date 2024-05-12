@@ -6,8 +6,14 @@ import { ActivatedRoute } from '@angular/router';
 import { StorageService } from '../services/storage.service';
 import { ApiService } from '../services/api.service';
 import { QRCodeModule, FixMeLater } from 'angularx-qrcode';
-import { Directory } from '@capacitor/filesystem';
+import {
+  Filesystem,
+  Directory,
+  Encoding,
+  DownloadFileResult,
+} from '@capacitor/filesystem';
 import write_blob from 'capacitor-blob-writer';
+import { Share } from '@capacitor/share';
 import { SafeUrl } from '@angular/platform-browser';
 
 @Component({
@@ -24,6 +30,9 @@ export class DetailVoucherPage {
   ucode: any;
   data: any;
   loading: boolean = true;
+  link: any = 'https://govo.my.id';
+
+  gmap: any;
 
   public qrCodeSrc!: SafeUrl;
 
@@ -61,6 +70,7 @@ export class DetailVoucherPage {
         this.data = data;
         this.data = this.data.data;
         this.qrcode = this.data.o_kodeVoucher;
+        this.gmap = encodeURIComponent(this.data.o_alamat);
         console.log(this.data);
         setTimeout(() => {
           this.loading = false;
@@ -85,6 +95,7 @@ export class DetailVoucherPage {
     this.modal.dismiss();
   }
 
+<<<<<<< Updated upstream
   onChangeURL(url: SafeUrl) {
     this.qrCodeSrc = url;
     console.log(this.qrCodeSrc);
@@ -153,5 +164,46 @@ export class DetailVoucherPage {
     }
     // return blob image after conversion
     return new Blob([uInt8Array], { type: imageType });
+=======
+  async share() {
+    console.log('inside');
+    try {
+      const result = Filesystem.downloadFile({
+        path: 'temp.jpeg',
+        url: 'https://govo.my.id/uploads/client/' + this.data.o_foto,
+        directory: Directory.Cache,
+      }).then((res) => {
+        console.log(res.path);
+        Share.share({
+          title: this.data.o_namaVoucher,
+          text:
+            this.data.o_deskripsi +
+            '\nklik link dibawah ini untuk mengambil.' +
+            '\ngovo.my.id/app/share/' +
+            this.data.o_kodeVoucher,
+          files: ['file://' + res.path!],
+        });
+      });
+      setTimeout('', 5000);
+      // writeFile({
+      //   path: 'KB7SRyjtxo.jpeg',
+      //   data: 'https://govo.my.id/uploads/client/KB7SRyjtxo.jpeg',
+      //   directory: Directory.Cache,
+      // });
+      // console.log('file Downloaded', result);
+      // setTimeout('', 5000);
+      // await Share.share({
+      //   title: this.data.o_namaVoucher,
+      //   text:
+      //     this.data.o_deskripsi +
+      //     '\nklik link dibawah ini untuk mengambil.' +
+      //     '\ngovo.my.id/app/share/' +
+      //     this.data.o_kodeVoucher,
+      //   files: [result.uri],
+      // });
+    } catch (e) {
+      console.error('Unable to write file', e);
+    }
+>>>>>>> Stashed changes
   }
 }

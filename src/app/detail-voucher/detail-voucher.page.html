@@ -64,7 +64,11 @@
       <div class="px-4 py-5 sm:px-6">
         <div class="relative h-[250px] sm:h-[350px]">
           <img
+<<<<<<< Updated upstream
             src="http://localhost:8080/uploads/client/{{data.o_foto}}"
+=======
+            src="{{link}}/uploads/client/{{data.o_foto}}"
+>>>>>>> Stashed changes
             alt=""
             class="absolute inset-0 h-full w-full object-contain"
           />
@@ -78,7 +82,8 @@
         <button
           id="open-modal"
           type="button"
-          class="h-12 py-2 px-4 flex justify-center items-center bg-greeny hover:bg-greeny2 focus:ring-greeny focus:ring-offset-greeny2 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
+          class="h-12 py-2 px-4 flex justify-center items-center bg-yellowy hover:bg-yellowy2 focus:ring-yellowyy focus:ring-offset-yellowyy2 text-gray-300 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
+          (click)="share()"
         >
           <svg
             class="w-5 h-5 text-white"
@@ -171,6 +176,41 @@
           <div
             class="px-4 py-5 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
           >
+<<<<<<< Updated upstream
+=======
+            <dt class="text-sm font-medium text-gray-500">Lokasi</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              {{data.o_alamat}}
+              <a
+                href="https://www.google.com/maps/search/?api=1&query={{gmap}}"
+                class="inline-flex items-center px-2 py-2 bg-yellowy border border-transparent rounded-full font-semibold text-gray-300 hover:bg-yellowy2"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+                  />
+                </svg>
+              </a>
+            </dd>
+          </div>
+          <div
+            class="px-4 py-5 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+          >
+>>>>>>> Stashed changes
             <dt class="text-sm font-medium text-gray-500">Status Voucher</dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
               {{data.o_ambil}} voucher diambil dari {{data.o_stokVoucher}} stok

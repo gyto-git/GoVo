@@ -20,6 +20,7 @@ export class VoucherPage {
   segment: string = 'All';
   voucher: Voucher[] = [];
   voucher_temp: Voucher[] = [];
+  link: any = 'https://govo.my.id';
   constructor(
     private api: ApiService,
     private storage: StorageService,
@@ -125,11 +126,12 @@ export class VoucherPage {
     console.log(ev);
     if (ev.detail.value == 'Aktif') {
       this.voucher_temp = this.voucher.filter((element) => {
+        // return element.o_namaVoucher.toLowerCase().includes('voucher');
         return element.o_status == 1;
       });
     } else if (ev.detail.value == 'Nonaktif') {
       this.voucher_temp = this.voucher.filter((element) => {
-        return element.o_status == 0;
+        return element.o_status == 0 || element.o_status == 2;
       });
     } else {
       this.voucher_temp = this.voucher;

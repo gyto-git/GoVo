@@ -67,12 +67,16 @@
         <ion-item-sliding *ngFor="let v of voucher_temp">
           <ion-item (click)="detail(v.id)" lines="none">
             <div
-              class="group flex bg-white rounded-lg shadow dark:bg-gray-800 h-36 m-1 hover:bg-greeny2 w-full"
+              class="group flex bg-white rounded-lg shadow dark:bg-gray-800 h-36 m-1 hover:bg-yellowy2 w-full"
               (click)="detail(v.id)"
             >
               <div class="relative flex-none w-24 md:w-48">
                 <img
+<<<<<<< Updated upstream
                   src="http://localhost:8080/uploads/client/{{v.o_foto}}"
+=======
+                  src="{{link}}/uploads/client/{{v.o_foto}}"
+>>>>>>> Stashed changes
                   alt="Gambar Voucher"
                   class="absolute inset-0 object-cover w-full h-full rounded-lg"
                 />
@@ -80,12 +84,12 @@
               <div class="flex-1 p-6">
                 <div class="flex flex-col">
                   <h1
-                    class="flex-auto text-xl font-semibold dark:text-gray-50 group-hover:text-white"
+                    class="flex-auto text-xl font-semibold dark:text-gray-50 group-hover:text-gray-300"
                   >
                     {{v.o_namaVoucher}}
                   </h1>
                   <div
-                    class="line-clamp-2 text-sm text-gray-700 group-hover:text-white flex flex-row gap-1"
+                    class="line-clamp-2 text-sm text-gray-700 group-hover:text-gray-300 flex flex-row gap-1"
                   >
                     <svg
                       class="w-4 h-4"
@@ -110,7 +114,7 @@
                     <div>{{v.o_ambil}}/{{v.o_stokVoucher}}</div>
                   </div>
                   <div
-                    class="line-clamp-2 text-sm text-gray-700 group-hover:text-white flex flex-row gap-1"
+                    class="line-clamp-2 text-sm text-gray-700 group-hover:text-gray-300 flex flex-row gap-1"
                   >
                     <svg
                       class="w-4 h-4"
@@ -135,7 +139,7 @@
                     <div>{{v.o_klaim}}/{{v.o_ambil}}</div>
                   </div>
                   <div
-                    class="line-clamp-2 text-sm text-gray-700 group-hover:text-white flex flex-row gap-1"
+                    class="line-clamp-2 text-sm text-gray-700 group-hover:text-gray-300 flex flex-row gap-1"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

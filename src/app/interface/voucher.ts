@@ -10,3 +10,12 @@ export interface Voucher {
   o_tanggalAkhir: string;
   o_deskripsi: string;
 }
+
+export interface Last {
+  lat: string;
+  lng: string;
+}
+
+export interface Mock {
+  name: string;
+}

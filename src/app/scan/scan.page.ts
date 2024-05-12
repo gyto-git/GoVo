@@ -29,6 +29,7 @@ export class scanPage {
   code: any;
   temp: any;
   loading: boolean = false;
+  link: any = 'https://govo.my.id';
 
   constructor(
     private navCtrl: NavController,

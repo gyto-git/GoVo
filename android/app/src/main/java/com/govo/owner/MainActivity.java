@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.govo.owner;
 
 import com.getcapacitor.BridgeActivity;
 

@@ -1,12 +1,9 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'GoVo',
+  appId: 'com.govo.owner',
+  appName: 'GoVo - Owner',
   webDir: 'www',
-  server: {
-    androidScheme: 'https'
-  }
 };
 
 export default config;

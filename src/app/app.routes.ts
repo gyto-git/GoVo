@@ -26,16 +26,16 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./register/register.page').then((m) => m.RegisterPage),
   },
-  {
-    path: 'qr-example',
-    loadComponent: () =>
-      import('./qr-example/qr-example.page').then((m) => m.QrExamplePage),
-  },
-  {
-    path: 'qr-generator',
-    loadComponent: () =>
-      import('./qr-generator/qr-generator.page').then((m) => m.QrGeneratorPage),
-  },
+  // {
+  //   path: 'qr-example',
+  //   loadComponent: () =>
+  //     import('./qr-example/qr-example.page').then((m) => m.QrExamplePage),
+  // },
+  // {
+  //   path: 'qr-generator',
+  //   loadComponent: () =>
+  //     import('./qr-generator/qr-generator.page').then((m) => m.QrGeneratorPage),
+  // },
   {
     path: 'home',
     loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
@@ -44,5 +44,9 @@ export const routes: Routes = [
     path: 'update',
     loadComponent: () =>
       import('./update/update.page').then((m) => m.UpdatePage),
+  },
+  {
+    path: 'test',
+    loadComponent: () => import('./test/test.page').then( m => m.TestPage)
   },
 ];

@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title> Google Maps </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content scroll="false" data-tap-disabled="true">
+  <br />
+  <p>maps</p>
+  <ion-button expand="block" (click)="openModal()"> Open </ion-button>
+  <hr />
+  <br />
+  <p>select</p>
+  <ion-button expand="block" (click)="send('provinsi','provinces.json')">
+    Open
+  </ion-button>
+  <ion-list>
+    <ion-item>
+      <ion-select
+        aria-label="Provinsi"
+        placeholder="Select Provinsi"
+        (ionChange)="handleProvince($event)"
+      >
+        <ion-select-option *ngFor="let p of provinsi" [value]="p">
+          {{ p.name }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-select
+        aria-label="Kota"
+        placeholder="Select kota"
+        (ionChange)="handlekota($event)"
+      >
+        <ion-select-option *ngFor="let k of kota" [value]="k">
+          {{ k.name }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <hr />
+  <br />
+  <p>search</p>
+  <ion-searchbar (ionChange)="handleSearch($event)"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let d of display">
+      <ion-label>{{d.nama}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

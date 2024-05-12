@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace "io.ionic.starter"
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    namespace "com.govo.owner"
+    compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "com.govo.owner"
         minSdkVersion rootProject.ext.minSdkVersion

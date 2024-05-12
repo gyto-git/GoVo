@@ -1,5 +1,5 @@
 <div class="ion-page" id="main-content">
-  <ion-header>
+  <ion-header class="ion-no-border">
     <ion-toolbar>
       <ion-buttons slot="end">
         |<ion-menu-button></ion-menu-button>
@@ -13,7 +13,11 @@
         <div class="px-4 py-5 sm:px-6">
           <div class="relative h-[250px] sm:h-[350px]">
             <img
+<<<<<<< Updated upstream
               src="http://localhost:8080/uploads/client/{{data.o_foto}}"
+=======
+              src="{{link}}/uploads/client/{{data.o_foto}}"
+>>>>>>> Stashed changes
               alt=""
               class="absolute inset-0 h-full w-full object-contain"
             />
@@ -27,7 +31,7 @@
           <button
             (click)="klaim()"
             type="button"
-            class="h-12 py-2 px-4 flex justify-center items-center bg-greeny hover:bg-greeny2 focus:ring-greeny focus:ring-offset-greeny2 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
+            class="h-12 py-2 px-4 flex justify-center items-center bg-yellowy hover:bg-yellowy2 focus:ring-yellowy focus:ring-offset-yellowy2 text-gray-500 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -99,11 +103,5 @@
       <strong>Silahkan scan Voucher</strong>
       <p>Klik tombol <ion-icon name="scan"></ion-icon> di pojok kanan bawah</p>
     </div>
-
-    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-      <ion-fab-button (click)="scan()" [disabled]="!isSupported">
-        <ion-icon name="scan"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
   </ion-content>
 </div>

@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
-import { DetailVoucherPage } from './detail-voucher.page';
+import { DetailVoucherPage } from './DetailVoucherPage';
 
 describe('DetailVoucherPage', () => {
   let component: DetailVoucherPage;

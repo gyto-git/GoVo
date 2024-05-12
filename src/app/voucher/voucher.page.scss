@@ -1,26 +1,26 @@
 ion-toolbar {
-  --background: #ade783;
-  --color: white;
+  --background: #fefa74;
+  --color: #808080;
 
   --padding-top: 10px;
   --padding-bottom: 10px;
 }
 
 ion-segment-button {
-  --indicator-color: #ade783;
+  --indicator-color: #fefa74;
 }
 
 ion-segment-button.md {
   --color: #000;
-  --color-checked: #ade783;
+  --color-checked: #e4e168;
   --indicator-height: 4px;
 }
 
 // tombol fab
 ion-fab-button {
-  --background: #ade783;
-  --background-activated: #91df58;
-  --background-hover: #9fe36e;
+  --background: #fefa74;
+  --background-activated: #fefa74;
+  --background-hover: #fefa74;
   --border-radius: 15px;
   --box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3),
     0px 1px 3px 1px rgba(0, 0, 0, 0.15);
