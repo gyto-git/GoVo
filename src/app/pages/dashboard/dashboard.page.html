@@ -1,0 +1,65 @@
+<ion-header class="ion-no-border" collapse="fade">
+  <ion-toolbar color="greeny" class="text-white h-[65px]" #toolbar>
+    <ion-buttons slot="end">
+      <!-- <ion-button (click)="openInfo('blank')">
+        <ion-icon size="large" name="information-circle-outline"></ion-icon>
+      </ion-button> -->
+    </ion-buttons>
+    <ion-title class="font-mono mt-2 text-3xl">GOVO</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" [fullscreen]="true" scrollEvents="true" [appHideHeader]="toolbar">
+  <div class="bg-[#99e265]">
+    <br />
+    <br />
+  </div>
+  <ion-card class="-top-10">
+    <ion-grid class="p-0">
+      <ion-row>
+        <ion-col size="9" class="border-r-2 border-[#f6f8fc] border-4">
+          <ion-card-header class="font-sans">
+            <ion-card-title>Hello,</ion-card-title>
+            <ion-card-title>{{nama}}</ion-card-title>
+          </ion-card-header>
+        </ion-col>
+        <ion-col size="3" class="p-0">
+          <ion-button class="w-full h-full" fill="clear" (click)="logOut()">
+            <ion-icon class="text-4xl" slot="icon-only" name="exit" color="danger"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <ion-card class="-top-5 shadow-none">
+    <ion-card-header>
+      <ion-card-title class="font-sans">Status Voucher</ion-card-title>
+    </ion-card-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4">% Voucher Aktif</ion-col>
+        <ion-col size="5"><ion-progress-bar [value]="activePer" class="top-2"></ion-progress-bar></ion-col>
+        <ion-col size="3"> <div class="text-center align-middle">{{activePer * 100| number: '0.0-2'}} %</div></ion-col>
+      </ion-row>
+    </ion-grid>
+    <br />
+  </ion-card>
+
+  <ion-grid class="m-3">
+    <ion-row><ion-col size="4" class="border-b-4 border-[#99e265] text-center tracking-wider font-sans"> Grafik </ion-col></ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card class="shadow-none">
+          <ion-card-header class="text-center"> Status Keseluruhan Voucher</ion-card-header>
+          <ion-card-content>
+            <canvas #doughnutCanvas style="position: relative; height: 20vh; width: 40vw"> </canvas>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <br />
+</ion-content>

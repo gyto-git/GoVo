@@ -1,0 +1,107 @@
+<ion-header class="ion-no-border" collapse="fade">
+  <ion-toolbar #toolbar id="main">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> {{theDetail.title}} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content scrollEvents="true" [appFadeHeader]="toolbar" [fullscreen]="true" color="light">
+  <ion-grid class="p-0">
+    <ion-row>
+      <ion-col class="p-0 h-72 bg-[#f6f8fc]">
+        <ion-img class="m-0 absolute inset-0 w-full h-full object-cover hover:object-scale-down" [src]="theDetail.image" />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="bg-white shadow-sm rounded-b-xl p-1 border-t-2 border-black">
+        <ion-row>
+          <ion-col>
+            <span class="p-1 font-sans text-xl">{{theDetail.title}}</span>
+          </ion-col>
+        </ion-row>
+        <ion-row class="">
+          <ion-col size="3" class="font-sans p-1 text-lg border-r-2 border-[#f6f8fc]">
+            <span class="font-semibold indent-1 text-[#99e265]">stok</span>
+            {{theDetail.stock}}
+          </ion-col>
+          <ion-col class="font-sans text-lg">
+            <span class="font-semibold text-[#99e265]">Berlaku dari tanggal :</span>
+            {{theDetail.fromWhen | date:'dd-MM-YYYY'}}
+            <span class="font-semibold text-[#99e265]">Sampai tanggal :</span>
+            {{theDetail.toWhen | date:'dd-MM-YYYY'}}
+          </ion-col>
+        </ion-row>
+        <br />
+      </ion-col>
+      <br />
+    </ion-row>
+    <br />
+    <ion-row class="bg-white shadow-sm">
+      <ion-col>
+        <ion-row>
+          <ion-col class="font-sans text-lg indent-1"> <span class="font-semibold text-[#99e265]">Dibuat oleh :</span> {{theDetail.owned}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="font-sans text-lg indent-1"> <span class="font-semibold text-[#99e265]">Asal Kota :</span> {{theDetail.town}} </ion-col>
+        </ion-row>
+        <ion-row class="border-b-2 border-[#f6f8fc]">
+          <ion-col class="font-sans text-lg indent-1"> <span class="font-semibold text-[#99e265]">Alamat Lengkap :</span> {{theDetail.address}} </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" class="font-sans text-lg font-semibold indent-1 text-[#99e265]"> Deskripsi : </ion-col>
+          <ion-col class="font-sans"> {{theDetail.description}}</ion-col>
+        </ion-row>
+        <br />
+      </ion-col>
+    </ion-row>
+    <br />
+    <ion-row class="bg-white shadow-sm">
+      <ion-col>
+        <ion-row>
+          <ion-col size="12" class="font-sans text-lg font-semibold indent-1 text-[#99e265]"> Lokasi : </ion-col>
+          <ion-col class="h-96">
+            <div class="map" #map></div>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <br />
+    <ion-row class="bg-white shadow-sm">
+      <ion-col>
+        <ion-row>
+          <ion-col size="12" class="font-sans text-lg font-semibold indent-1 text-[#99e265]"> Status :</ion-col>
+          <ion-col>
+            <canvas #barCanvas style="position: relative; height: 20vh; width: 40vw"> </canvas>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <br /><br />
+  <br /><br />
+</ion-content>
+
+<ion-footer class="ion-no-border h-[72px]" id="footer" style="background-color: white">
+  <ion-grid class="p-0">
+    <ion-row>
+      <ion-col size="2">
+        <ion-button color="danger" expand="block" class="h-full" (click)="hapus()">
+          <ion-icon slot="icon-only" name="trash-bin-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button color="warning" expand="block" class="h-full" (click)="edit()">
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="8">
+        <ion-button color="greeny" expand="block" class="h-full">
+          <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

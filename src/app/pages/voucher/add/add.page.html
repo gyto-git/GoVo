@@ -1,0 +1,125 @@
+<ion-header class="ion-no-border" collapse="fade">
+  <ion-toolbar #toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="font-mono text-3xl text-white">GOVO</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content scrollEvents="true" color="greeny" [appFadeHeader]="toolbar" [fullscreen]="true">
+  <ion-grid class="p-0 my-16">
+    <ion-row>
+      <!-- PAGE 1 -->
+      <ion-col size="12" class="bg-[#f6f8fc] h-full px-0 rounded-md shadow-md" #page1>
+        <br />
+        <div class="text-center text-2xl font-semibold tracking-tight text-black">Tambah Data</div>
+        <br />
+        <ion-input class="mx-auto w-[90%]" label="Nama" label-placement="stacked" fill="outline" placeholder="Masukkan Nama Voucher" [(ngModel)]="o_namaVoucher"></ion-input>
+        <br />
+        <ion-input class="mx-auto w-[90%]" label="Stok" label-placement="stacked" fill="outline" placeholder="Masukkan Stok Voucher" type="number" [(ngModel)]="o_stokVoucher"></ion-input>
+        <br />
+        <ion-textarea class="mx-auto w-[90%]" label="Deskripsi" labelPlacement="stacked" fill="outline" placeholder="Masukkan Deskripsi Voucher" rows="5" [(ngModel)]="o_deskripsi"></ion-textarea>
+        <br />
+        <div class="col-span-full w-[90%] mx-auto">
+          <!-- <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Cover photo</label> -->
+          <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10" *ngIf="!images">
+            <div class="text-center">
+              <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  fill-rule="evenodd"
+                  d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <div class="mt-4 flex text-sm leading-6 text-gray-600">
+                <label for="file-upload" class="relative cursor-pointer rounded-md bg-[#f6f8fc] font-semibold text-[#99e265] mx-auto">
+                  <span>Upload foto</span>
+                  <input id="file-upload" class="sr-only" (click)="ambilfoto()" />
+                </label>
+              </div>
+              <p class="text-xs leading-5 text-gray-600">PNG, JPG up to 10MB</p>
+            </div>
+          </div>
+          <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25" *ngIf="images">
+            <img [src]="showpict" class="max-h-96 text-sm shadow-sm" (click)="ambilfoto()" />
+          </div>
+        </div>
+        <div class="relative my-4">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-gray-300"></div>
+          </div>
+        </div>
+        <ion-row>
+          <ion-col size="6">
+            <ion-button color="greeny" (click)="prevPage()" class="p-4 w-full align-middle" *ngIf="pages !== 1">Previous Page</ion-button>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button color="greeny" (click)="nextPage()" class="p-4 w-full align-middle">Next Page</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <!-- PAGE 2 -->
+      <ion-col size="12" class="bg-[#f6f8fc] h-full px-0 rounded-md shadow-md hidden" #page2>
+        <br />
+        <div class="text-center text-2xl font-semibold tracking-tight text-black">Tambah Data</div>
+        <br />
+        <ion-datetime presentation="date" class="mx-auto" color="greeny" locale="id-ID" [(ngModel)]="o_tanggalMulai">
+          <span slot="title">Tanggal Dimulai</span>
+        </ion-datetime>
+        <br />
+        <ion-datetime presentation="date" class="mx-auto" color="greeny" locale="id-ID" [(ngModel)]="o_tanggalAkhir">
+          <span slot="title">Tanggal Berakhir</span>
+        </ion-datetime>
+        <div class="relative my-4">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-gray-300"></div>
+          </div>
+        </div>
+        <ion-row>
+          <ion-col size="6">
+            <ion-button color="greeny" (click)="prevPage()" class="p-4 w-full align-middle" *ngIf="pages !== 1">Previous Page</ion-button>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button color="greeny" (click)="nextPage()" class="p-4 w-full align-middle">Next Page</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <!-- PAGE 3 -->
+      <ion-col size="12" class="bg-[#f6f8fc] h-full px-0 rounded-md shadow-md hidden" #page3>
+        <br />
+        <div class="text-center text-2xl font-semibold tracking-tight text-black">Tambah Data</div>
+        <br />
+        <ion-input class="mx-auto w-[90%]" label="Alamat Lengkap" label-placement="stacked" fill="outline" placeholder="Masukkan alamat lengkap" [(ngModel)]="o_alamat"></ion-input>
+        <br />
+        <ion-select class="mx-auto w-[90%]" label="Kota" label-placement="stacked" fill="outline" [(ngModel)]="o_kota" placeholder="Pilih Kota">
+          <ion-select-option *ngFor="let k of kota" class="mx-auto w-[90%]" value="{{k.name}}">{{k.name}}</ion-select-option>
+        </ion-select>
+        <br />
+        <ion-row>
+          <ion-col size="12" class="indent-6"> Pilih Lokasi </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="h-96 mx-5 border rounded-sm border-gray-500">
+            <div class="map" #map></div>
+          </ion-col>
+        </ion-row>
+
+        <div class="relative my-4">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-gray-300"></div>
+          </div>
+        </div>
+        <ion-row>
+          <ion-col size="6">
+            <ion-button color="greeny" (click)="prevPage()" class="p-4 w-full align-middle" *ngIf="pages !== 1">Previous Page</ion-button>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button color="greeny" (click)="submit()" class="p-4 w-full align-middle" *ngIf="pages === 3">Done</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <br />
+    <br />
+  </ion-grid>
+</ion-content>

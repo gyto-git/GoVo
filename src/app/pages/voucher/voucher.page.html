@@ -1,0 +1,116 @@
+<ion-header class="ion-no-border" collapse="fade">
+  <ion-toolbar color="greeny" class="text-white h-[65px]" #toolbar>
+    <ion-title class="font-mono mt-2 text-3xl">GOVO</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" [fullscreen]="true" scrollEvents="true" [appHideHeader]="toolbar">
+  <div class="bg-[#99e265]">
+    <br />
+    <br />
+  </div>
+  <div class="h-10"></div>
+  <div class="h-full bg-gradient-to-b from-white to-[#f6f8fc] rounded-t-[30px]">
+    <div class="h-5"></div>
+    <ion-searchbar class="custom" placeholder="Search..." (ionChange)="search($event)"></ion-searchbar>
+    <ion-grid class="p-0" *ngIf="!searchEnabled">
+      <ion-accordion-group value="first" expand="compact">
+        <ion-accordion value="first">
+          <ion-item slot="header" class="">
+            <ion-label>Voucher Aktif</ion-label>
+          </ion-item>
+          <div slot="content">
+            <ion-grid class="p-0">
+              <ion-row>
+                <ion-col size="12" class="p-0" *ngFor="let a of dActive">
+                  <ion-card button="true" (click)="toDetail(a.id)">
+                    <ion-grid class="p-0">
+                      <ion-row>
+                        <ion-col size="4">
+                          <img src="{{link}}/uploads/client/{{a.o_foto}}" class="m-0 absolute inset-0 w-full h-full object-cover" />
+                        </ion-col>
+                        <ion-col size="0.5">
+                          <div class="border-l-2 border-black border-dashed h-full"></div>
+                        </ion-col>
+                        <ion-col size="7.5">
+                          <ion-card-header>
+                            <ion-card-title>{{a.o_namaVoucher}}</ion-card-title>
+                            <ion-card-subtitle>ambil / klaim => {{a.o_ambil}}/{{a.o_klaim}}</ion-card-subtitle>
+                          </ion-card-header>
+                          <ion-card-content> <div class="line-clamp-1">{{a.o_deskripsi}}</div></ion-card-content>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </ion-card>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </ion-accordion>
+        <ion-accordion value="second">
+          <ion-item slot="header" class="">
+            <ion-label>Voucher Mati</ion-label>
+          </ion-item>
+          <div slot="content">
+            <ion-grid class="p-0">
+              <ion-row>
+                <ion-col size="12" class="p-0" *ngFor="let a of dNonActive">
+                  <ion-card button="true" (click)="toDetail(a.id)">
+                    <ion-grid class="p-0">
+                      <ion-row>
+                        <ion-col size="4">
+                          <img src="{{link}}/uploads/client/{{a.o_foto}}" class="m-0 absolute inset-0 w-full h-full object-cover" />
+                        </ion-col>
+                        <ion-col size="0.5">
+                          <div class="border-l-2 border-black border-dashed h-full"></div>
+                        </ion-col>
+                        <ion-col size="7.5">
+                          <ion-card-header>
+                            <ion-card-title>{{a.o_namaVoucher}}</ion-card-title>
+                            <ion-card-subtitle>ambil / klaim => {{a.o_ambil}}/{{a.o_klaim}}</ion-card-subtitle>
+                          </ion-card-header>
+                          <ion-card-content> <div class="line-clamp-1">{{a.o_deskripsi}}</div></ion-card-content>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </ion-card>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </ion-grid>
+    <ion-grid class="p-0" *ngIf="searchEnabled">
+      <ion-row>
+        <ion-col size="12" class="p-0" *ngFor="let a of voucher_temp">
+          <ion-card button="true" (click)="toDetail(a.id)">
+            <ion-grid class="p-0">
+              <ion-row>
+                <ion-col size="4">
+                  <img src="{{link}}/uploads/client/{{a.o_foto}}" class="m-0 absolute inset-0 w-full h-full object-cover" />
+                </ion-col>
+                <ion-col size="0.5">
+                  <div class="border-l-2 border-black border-dashed h-full"></div>
+                </ion-col>
+                <ion-col size="7.5">
+                  <ion-card-header>
+                    <ion-card-title>{{a.o_namaVoucher}}</ion-card-title>
+                    <ion-card-subtitle>ambil / klaim => {{a.o_ambil}}/{{a.o_klaim}}</ion-card-subtitle>
+                  </ion-card-header>
+                  <ion-card-content> <div class="line-clamp-1">{{a.o_deskripsi}}</div></ion-card-content>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <br /><br /><br />
+  </div>
+</ion-content>
+<ion-fab slot="fixed" horizontal="end" vertical="bottom">
+  <ion-fab-button color="greeny" (click)="toTambah()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

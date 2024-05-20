@@ -3,50 +3,40 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.routes').then((m) => m.routes),
+    loadChildren: () => import('./pages/tabs/tabs.routes').then((m) => m.routes),
   },
+  {
+    path: 'dashboard',
+    loadComponent: () => import('./pages/dashboard/dashboard.page').then((m) => m.DashboardPage),
+  },
+  {
+    path: 'scanner',
+    loadComponent: () => import('./pages/scanner/scanner.page').then((m) => m.ScannerPage),
+  },
+  {
+    path: 'detail-scan',
+    loadComponent: () => import('./pages/scanner/detail/detail.page').then((m) => m.DetailPage),
+  },
+  //auth
   {
     path: 'login',
-    loadComponent: () => import('./login/login.page').then((m) => m.LoginPage),
-  },
-  {
-    path: 'add-voucher',
-    loadComponent: () =>
-      import('./add-voucher/add-voucher.page').then((m) => m.AddVoucherPage),
-  },
-  {
-    path: 'detail-voucher',
-    loadComponent: () =>
-      import('./detail-voucher/detail-voucher.page').then(
-        (m) => m.DetailVoucherPage
-      ),
+    loadComponent: () => import('./pages/auth/login/login.page').then((m) => m.LoginPage),
   },
   {
     path: 'register',
-    loadComponent: () =>
-      import('./register/register.page').then((m) => m.RegisterPage),
+    loadComponent: () => import('./pages/auth/register/register.page').then((m) => m.RegisterPage),
   },
-  // {
-  //   path: 'qr-example',
-  //   loadComponent: () =>
-  //     import('./qr-example/qr-example.page').then((m) => m.QrExamplePage),
-  // },
-  // {
-  //   path: 'qr-generator',
-  //   loadComponent: () =>
-  //     import('./qr-generator/qr-generator.page').then((m) => m.QrGeneratorPage),
-  // },
+  // voucher component
   {
-    path: 'home',
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
+    path: 'add',
+    loadComponent: () => import('./pages/voucher/add/add.page').then((m) => m.AddPage),
   },
   {
-    path: 'update',
-    loadComponent: () =>
-      import('./update/update.page').then((m) => m.UpdatePage),
+    path: 'edit',
+    loadComponent: () => import('./pages/voucher/edit/edit.page').then((m) => m.EditPage),
   },
   {
-    path: 'test',
-    loadComponent: () => import('./test/test.page').then( m => m.TestPage)
+    path: 'detail',
+    loadComponent: () => import('./pages/voucher/detail/detail.page').then((m) => m.DetailPage),
   },
 ];

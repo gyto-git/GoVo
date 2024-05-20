@@ -1,5 +1,5 @@
 export interface Voucher {
-  id: Number[];
+  id: Number;
   o_namaVoucher: string;
   o_status: Number;
   o_stokVoucher: Number;
@@ -11,11 +11,11 @@ export interface Voucher {
   o_deskripsi: string;
 }
 
-export interface Last {
-  lat: string;
-  lng: string;
-}
+// export interface Last {
+//   lat: string;
+//   lng: string;
+// }
 
-export interface Mock {
-  name: string;
-}
+// export interface Mock {
+//   name: string;
+// }

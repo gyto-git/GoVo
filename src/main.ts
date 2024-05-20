@@ -8,11 +8,15 @@ import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
 
 import { Storage } from '@ionic/storage-angular';
-import { StorageService } from './app/services/storage.service';
+import { StorageService } from './app/services/storage/storage.service';
+
+import localeId from '@angular/common/locales/id';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localeId, 'id');
 
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
-import { ApiService } from './app/services/api.service';
+import { ApiService } from './app/services/api/api.service';
 
 if (environment.production) {
   enableProdMode();
@@ -21,10 +25,7 @@ if (environment.production) {
 bootstrapApplication(AppComponent, {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    importProvidersFrom(
-      IonicModule.forRoot({ innerHTMLTemplatesEnabled: true }),
-      HttpClientModule
-    ),
+    importProvidersFrom(IonicModule.forRoot({ innerHTMLTemplatesEnabled: true }), HttpClientModule),
     provideRouter(routes),
     Storage,
     StorageService,

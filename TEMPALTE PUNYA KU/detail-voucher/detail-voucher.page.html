@@ -1,0 +1,203 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> Detail </ion-title>
+  </ion-toolbar>
+</ion-header>
+<div
+  *ngIf="loading"
+  style="
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+  "
+>
+  <div style="text-align: center; color: grey">
+    <ion-spinner color="tertiary" name="bubbles"></ion-spinner>
+    <p style="text-align: center; margin-top: 3px">please wait</p>
+  </div>
+</div>
+<ion-content color="light" class="ion-padding" *ngIf="!loading">
+  <ion-card class="ion-padding">
+    <img
+      alt="Silhouette of mountains"
+      src="http://localhost:8080/uploads/client/{{data.o_foto}}"
+    />
+    <ion-card-header>
+      <ion-card-title>{{data.o_namaVoucher}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Diambil {{data.o_ambil}}/{{data.o_stokVoucher}}</p>
+      <p>Diklaim {{data.o_klaim}}/{{data.o_ambil}}</p>
+      <p>Berlaku dari tanggal</p>
+      <p>
+        {{data.o_tanggalMulai | date:'dd-MM-yyyy'}} sampai tanggal
+        {{data.o_tanggalAkhir | date:'dd-MM-yyyy'}}
+      </p>
+      <p>Kode QR:</p>
+      <qrcode
+        [qrdata]="qrcode"
+        [width]="256"
+        [errorCorrectionLevel]="'M'"
+      ></qrcode>
+    </ion-card-content>
+  </ion-card>
+</ion-content> -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> Detail </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" class="ion-padding">
+  <div *ngIf="!loading">
+    <div class="max-w-2xl overflow-hidden bg-white shadow sm:rounded-lg m-3">
+      <div class="px-4 py-5 sm:px-6">
+        <div class="relative h-[250px] sm:h-[350px]">
+          <img
+            src="{{link}}/uploads/client/{{data.o_foto}}"
+            alt=""
+            class="absolute inset-0 h-full w-full object-contain"
+          />
+        </div>
+      </div>
+      <div class="px-4 py-5 sm:px-6">
+        <h3 class="text-lg font-medium text-gray-900 text-center mb-5">
+          {{data.o_namaVoucher}}
+        </h3>
+
+        <button
+          id="open-modal"
+          type="button"
+          class="h-12 py-2 px-4 flex justify-center items-center bg-yellowy hover:bg-yellowy2 focus:ring-yellowyy focus:ring-offset-yellowyy2 text-gray-300 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
+          (click)="share()"
+        >
+          <svg
+            class="w-5 h-5 text-white"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            stroke="#ffffff"
+          >
+            <path
+              d="M12.38 3.88V10.88H19.38V3.88H12.38ZM17.88 9.38H13.88V5.38H17.88V9.38Z"
+              fill="#ffffff"
+            />
+            <path
+              d="M3.88 10.88H10.88V3.88H3.88V10.88ZM5.38 5.38H9.38V9.38H5.38V5.38Z"
+              fill="#ffffff"
+            />
+            <path
+              d="M3.88 19.38H10.88V12.38H3.88V19.38ZM5.38 13.88H9.38V17.88H5.38V13.88Z"
+              fill="#ffffff"
+            />
+            <path d="M14.13 12.38H12.38V14.13H14.13V12.38Z" fill="#ffffff" />
+            <path d="M17.63 12.38H15.88V14.13H17.63V12.38Z" fill="#ffffff" />
+            <path d="M15.88 14.13H14.13V15.88H15.88V14.13Z" fill="#ffffff" />
+            <path d="M19.38 14.13H17.63V15.88H19.38V14.13Z" fill="#ffffff" />
+            <path d="M14.13 15.88H12.38V17.63H14.13V15.88Z" fill="#ffffff" />
+            <path d="M17.63 15.88H15.88V17.63H17.63V15.88Z" fill="#ffffff" />
+            <path d="M15.88 17.63H14.13V19.38H15.88V17.63Z" fill="#ffffff" />
+            <path d="M19.38 17.63H17.63V19.38H19.38V17.63Z" fill="#ffffff" />
+          </svg>
+          Buka Kode QR
+        </button>
+      </div>
+      <div class="border-t border-gray-200">
+        <dl>
+          <div
+            class="px-4 py-5 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+          >
+            <dt class="text-sm font-medium text-gray-500">Deskripsi</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              {{data.o_deskripsi}}
+            </dd>
+          </div>
+          <div
+            class="px-4 py-5 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+          >
+            <<<<<<< Updated upstream =======
+            <dt class="text-sm font-medium text-gray-500">Lokasi</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              {{data.o_alamat}}
+              <a
+                href="https://www.google.com/maps/search/?api=1&query={{gmap}}"
+                class="inline-flex items-center px-2 py-2 bg-yellowy border border-transparent rounded-full font-semibold text-gray-300 hover:bg-yellowy2"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+                  />
+                </svg>
+              </a>
+            </dd>
+          </div>
+          <div
+            class="px-4 py-5 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+          >
+            >>>>>>> Stashed changes
+            <dt class="text-sm font-medium text-gray-500">Status Voucher</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              {{data.o_ambil}} voucher diambil dari {{data.o_stokVoucher}} stok
+              voucher
+            </dd>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              {{data.o_klaim}} voucher dipakai dari {{data.o_ambil}} yang sudah
+              diambil
+            </dd>
+          </div>
+          <div
+            class="px-4 py-5 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+          >
+            <dt class="text-sm font-medium text-gray-500">
+              Berlaku dari tanggal dan sampai tanggal
+            </dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              {{data.o_tanggalMulai | date:'dd-MM-yyyy'}} -
+              {{data.o_tanggalAkhir | date:'dd-MM-yyyy'}}
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <div
+    *ngIf="loading"
+    style="
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+    "
+  >
+    <div style="text-align: center; color: grey">
+      <ion-spinner color="tertiary" name="bubbles"></ion-spinner>
+      <p style="text-align: center; margin-top: 3px">please wait</p>
+    </div>
+  </div>
+</ion-content>
