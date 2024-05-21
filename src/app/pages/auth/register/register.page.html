@@ -1,26 +1,25 @@
 <ion-content color="greeny" [fullscreen]="true">
-  <ion-grid class="p-0 my-16">
+  <ion-grid class="p-0 my-10">
     <ion-row>
       <ion-col size="12">
         <ion-img size="12" src="../../../../assets/icon/favicon.png" class="w-28 mx-auto"></ion-img>
       </ion-col>
       <ion-col size="12" class="text-center text-2xl font-bold leading-9 tracking-tight text-white">
-        <span>Sign Up To A New Account</span>
+        <span>Register Ke Akun Baru</span>
       </ion-col>
     </ion-row>
-    <br />
     <br />
     <ion-row>
       <ion-col size="12" class="bg-white h-full px-0 rounded-md shadow-md">
         <br /><br />
-        <ion-input class="mx-auto w-[90%] bg-[#f6f8fc] rounded-full" fill="outline" placeholder="Enter Username" shape="round" type="text" [(ngModel)]="uname"></ion-input>
+        <ion-input class="mx-auto w-[90%] bg-[#f6f8fc] rounded-full" fill="outline" placeholder="Masukkan Username" shape="round" type="text" [(ngModel)]="uname"></ion-input>
         <br />
-        <ion-input class="mx-auto w-[90%] bg-[#f6f8fc] rounded-full" fill="outline" placeholder="Enter Email" shape="round" type="email" [(ngModel)]="email"></ion-input>
+        <ion-input class="mx-auto w-[90%] bg-[#f6f8fc] rounded-full" fill="outline" placeholder="Masukkan Email" shape="round" type="email" [(ngModel)]="email"></ion-input>
         <br />
-        <ion-input class="mx-auto w-[90%] bg-[#f6f8fc] rounded-full" fill="outline" placeholder="Enter Pass" shape="round" [type]="switchPass.type" [(ngModel)]="password"> </ion-input>
+        <ion-input class="mx-auto w-[90%] bg-[#f6f8fc] rounded-full" fill="outline" placeholder="Masukkan Password" shape="round" [type]="switchPass.type" [(ngModel)]="password"> </ion-input>
         <a class="ml-12 underline text-blue-500" (click)="switching()">{{switchPass.text}}</a>
         <br /><br />
-        <ion-button color="greeny" class="mx-auto w-[50%] text-white" shape="round" expand="block" (click)="register()"> <span class="text-white font-semibold">Sign Up</span></ion-button>
+        <ion-button color="greeny" class="mx-auto w-[50%] text-white" shape="round" expand="block" (click)="register()"> <span class="text-white font-semibold">Daftar</span></ion-button>
         <div class="relative my-4">
           <div class="absolute inset-0 flex items-center">
             <div class="w-full border-t border-gray-300"></div>
@@ -30,12 +29,12 @@
           </div>
         </div>
         <ion-button (click)="toLogin()" color="greeny" class="mx-auto w-[50%] text-white" shape="round" expand="block">
-          <span class="text-white font-semibold"> Login</span>
+          <span class="text-white font-semibold">Login</span>
         </ion-button>
         <br />
       </ion-col>
       <ion-col>
-        <p class="mt-10 text-center text-sm text-white">govo.my.id</p>
+        <p class="mt-4 text-center text-sm text-white">govo.my.id</p>
       </ion-col>
     </ion-row>
   </ion-grid>

@@ -4,22 +4,21 @@
       <ion-col size="12">
         <ion-img size="12" src="../../../../assets/icon/favicon.png" class="w-28 mx-auto"></ion-img>
       </ion-col>
-      <ion-col size="12" class="text-center text-2xl font-bold leading-9 tracking-tight text-white">
-        <span>Sign In To Your Account</span>
+      <ion-col size="12" class="text-center text-2xl font-bold leading-8 tracking-tight text-white">
+        <span>Masuk Ke Akun Anda</span>
       </ion-col>
     </ion-row>
-    <br />
     <br />
     <ion-row>
       <ion-col size="12" class="bg-white h-full px-0 rounded-md shadow-md">
         <br /><br />
-        <ion-input class="mx-auto w-[90%] bg-[#f6f8fc] rounded-full" fill="outline" placeholder="Enter Email" shape="round" type="email" [(ngModel)]="email"></ion-input>
+        <ion-input class="mx-auto w-[90%] bg-[#f6f8fc] rounded-full" fill="outline" placeholder="Masukkan Email" shape="round" type="email" [(ngModel)]="email"></ion-input>
         <br />
-        <ion-input class="mx-auto w-[90%] bg-[#f6f8fc] rounded-full" fill="outline" placeholder="Enter Pass" shape="round" [type]="switchPass.type" [(ngModel)]="password"> </ion-input>
+        <ion-input class="mx-auto w-[90%] bg-[#f6f8fc] rounded-full" fill="outline" placeholder="Masukkan Password" shape="round" [type]="switchPass.type" [(ngModel)]="password"> </ion-input>
         <a class="ml-12 underline text-blue-500" (click)="switching()">{{switchPass.text}}</a>
         <br />
         <br />
-        <ion-button color="greeny" class="mx-auto w-[50%] text-white" shape="round" expand="block" (click)="login()"> <span class="text-white font-semibold">Sign In</span></ion-button>
+        <ion-button color="greeny" class="mx-auto w-[50%] text-white" shape="round" expand="block" (click)="login()"> <span class="text-white font-semibold">Masuk</span></ion-button>
         <div class="relative my-4">
           <div class="absolute inset-0 flex items-center">
             <div class="w-full border-t border-gray-300"></div>

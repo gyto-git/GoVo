@@ -7,7 +7,7 @@ import { GmapsService } from 'src/app/services/gmaps/gmaps.service';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { Geolocation } from '@capacitor/geolocation';
 import { StorageService } from 'src/app/services/storage/storage.service';
-import { FadeHeaderDirective } from 'src/app/directives/fadeHeader/fade-header.directive';
+import { HideHeaderDirective } from 'src/app/directives/hideHeader/hide-header.directive';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -15,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './edit.page.html',
   styleUrls: ['./edit.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, FadeHeaderDirective],
+  imports: [IonicModule, CommonModule, FormsModule, HideHeaderDirective],
 })
 export class EditPage {
   // urusan halaman
@@ -93,7 +93,7 @@ export class EditPage {
         this.input.o_tanggalAkhir = temp;
         this.lat = this.input.o_lat;
         this.lng = this.input.o_lng;
-        this.showpict = 'http://govo.my.id/uploads/client/' + this.input.o_foto;
+        this.showpict = 'https://govo.my.id/uploads/client/' + this.input.o_foto;
         console.log(this.input);
         setTimeout(() => {
           this.loading = false;
@@ -240,7 +240,7 @@ export class EditPage {
     this.mapClickListener = this.googleMaps.event.addListener(this.map, 'click', (mapsMouseEvent: { latLng: { toJSON: () => any } }) => {
       console.log(mapsMouseEvent.latLng.toJSON());
       this.lat = mapsMouseEvent.latLng.toJSON().lat;
-      this.lng = mapsMouseEvent.latLng.toJSON().lat;
+      this.lng = mapsMouseEvent.latLng.toJSON().lng;
       console.log(this.lat, this.lng);
       this.lastcord = mapsMouseEvent.latLng.toJSON();
       this.cd.detectChanges();

@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { MapsComponent } from './maps.component';
+import { ScanModalComponent } from './scan-modal.component';
 
-describe('MapsComponent', () => {
-  let component: MapsComponent;
-  let fixture: ComponentFixture<MapsComponent>;
+describe('ScanModalComponent', () => {
+  let component: ScanModalComponent;
+  let fixture: ComponentFixture<ScanModalComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MapsComponent ],
+      declarations: [ ScanModalComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MapsComponent);
+    fixture = TestBed.createComponent(ScanModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

@@ -7,14 +7,14 @@ import { GmapsService } from 'src/app/services/gmaps/gmaps.service';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { Geolocation } from '@capacitor/geolocation';
 import { StorageService } from 'src/app/services/storage/storage.service';
-import { FadeHeaderDirective } from 'src/app/directives/fadeHeader/fade-header.directive';
+import { HideHeaderDirective } from 'src/app/directives/hideHeader/hide-header.directive';
 
 @Component({
   selector: 'app-add',
   templateUrl: './add.page.html',
   styleUrls: ['./add.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, FadeHeaderDirective],
+  imports: [IonicModule, CommonModule, FormsModule, HideHeaderDirective],
 })
 export class AddPage {
   // urusan halaman
@@ -204,7 +204,7 @@ export class AddPage {
     this.mapClickListener = this.googleMaps.event.addListener(this.map, 'click', (mapsMouseEvent: { latLng: { toJSON: () => any } }) => {
       console.log(mapsMouseEvent.latLng.toJSON());
       this.lat = mapsMouseEvent.latLng.toJSON().lat;
-      this.lng = mapsMouseEvent.latLng.toJSON().lat;
+      this.lng = mapsMouseEvent.latLng.toJSON().lng;
       console.log(this.lat, this.lng);
       this.lastcord = mapsMouseEvent.latLng.toJSON();
       this.cd.detectChanges();

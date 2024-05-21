@@ -14,7 +14,7 @@ import { ApiService } from 'src/app/services/api/api.service';
 export class RegisterPage {
   public switchPass = {
     enabled: false,
-    text: 'show password',
+    text: 'tampilkan password',
     type: 'password',
   };
   //register
@@ -26,11 +26,11 @@ export class RegisterPage {
   switching() {
     if (this.switchPass.enabled == false) {
       this.switchPass.enabled = true;
-      this.switchPass.text = 'hide password';
+      this.switchPass.text = 'sembunyikan password';
       this.switchPass.type = 'text';
     } else {
       this.switchPass.enabled = false;
-      this.switchPass.text = 'show password';
+      this.switchPass.text = 'tampilkan password';
       this.switchPass.type = 'password';
     }
   }

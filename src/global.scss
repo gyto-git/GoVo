@@ -28,3 +28,25 @@
 @import "tailwindcss/base.css";
 @import "tailwindcss/components.css";
 @import "tailwindcss/utilities.css";
+
+ion-modal.auto-height {
+  --height: fit-content;
+  --width: fit-content;
+  --min-width: 250px;
+  --height: fit-content;
+  --border-radius: 6px;
+  --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+}
+ion-modal.auto-height h1 {
+  margin: 20px 20px 10px 20px;
+}
+ion-modal.auto-height .inner-content {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+ion-modal.auto-height .wrapper {
+  margin-bottom: 10px;
+}

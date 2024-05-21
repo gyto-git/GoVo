@@ -8,6 +8,8 @@ import { StorageService } from 'src/app/services/storage/storage.service';
 import { ApiService } from 'src/app/services/api/api.service';
 import { FadeHeaderDirective } from 'src/app/directives/fadeHeader/fade-header.directive';
 import { Chart } from 'chart.js/auto';
+import { Filesystem, Directory } from '@capacitor/filesystem';
+import { Share } from '@capacitor/share';
 
 @Component({
   selector: 'app-detail',
@@ -306,4 +308,40 @@ export class DetailPage implements OnInit {
   }
 
   //bagi voucher
+  async share() {
+    console.log('inside');
+    try {
+      const result = Filesystem.downloadFile({
+        path: 'temp.jpeg',
+        url: 'https://govo.my.id/uploads/client/' + this.data.o_foto,
+        directory: Directory.Cache,
+      }).then((res) => {
+        console.log(res.path);
+        Share.share({
+          title: this.data.o_namaVoucher,
+          text: this.data.o_deskripsi + '\nklik link dibawah ini untuk mengambil.' + '\ngovo.my.id/app/share/' + this.data.o_kodeVoucher,
+          files: ['file://' + res.path!],
+        });
+      });
+      setTimeout('', 5000);
+      // writeFile({
+      //   path: 'KB7SRyjtxo.jpeg',
+      //   data: 'https://govo.my.id/uploads/client/KB7SRyjtxo.jpeg',
+      //   directory: Directory.Cache,
+      // });
+      // console.log('file Downloaded', result);
+      // setTimeout('', 5000);
+      // await Share.share({
+      //   title: this.data.o_namaVoucher,
+      //   text:
+      //     this.data.o_deskripsi +
+      //     '\nklik link dibawah ini untuk mengambil.' +
+      //     '\ngovo.my.id/app/share/' +
+      //     this.data.o_kodeVoucher,
+      //   files: [result.uri],
+      // });
+    } catch (e) {
+      console.error('Unable to write file', e);
+    }
+  }
 }

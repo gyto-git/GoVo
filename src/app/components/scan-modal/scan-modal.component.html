@@ -1,0 +1,39 @@
+<ng-template [ngIf]="switch === 'continue'">
+  <div class="inner-content">
+    <div class="wrapper">
+      <h1 class="text-center">Berhasil</h1>
+      <ion-grid>
+        <ion-row>
+          <ion-col> Voucher Yang Diambil </ion-col>
+          <ion-col> : {{ data.o_namaVoucher }} </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col> User Yang Mengambil </ion-col>
+          <ion-col> : {{ data.user }} </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col> Tanggal Voucher Berakhir </ion-col>
+          <ion-col> : {{ data.o_tanggalAkhir }} </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="mx-auto">
+            <ion-button color="greeny" expand="block" (click)="klaim()"> Klaim Voucher Ini </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template [ngIf]="switch === 'error'">
+  <div class="inner-content">
+    <div class="wrapper">
+      <h1 class="text-center">Error</h1>
+      <ion-grid>
+        <ion-row>
+          <ion-col> Voucher Ini tidak ada atau bukan punya anda </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ng-template>

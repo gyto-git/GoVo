@@ -23,7 +23,7 @@
         </ion-row>
         <ion-row class="">
           <ion-col size="3" class="font-sans p-1 text-lg border-r-2 border-[#f6f8fc]">
-            <span class="font-semibold indent-1 text-[#99e265]">stok</span>
+            <span class="font-semibold text-[#99e265]">stok</span>
             {{theDetail.stock}}
           </ion-col>
           <ion-col class="font-sans text-lg">
@@ -41,17 +41,20 @@
     <ion-row class="bg-white shadow-sm">
       <ion-col>
         <ion-row>
-          <ion-col class="font-sans text-lg indent-1"> <span class="font-semibold text-[#99e265]">Dibuat oleh :</span> {{theDetail.owned}}</ion-col>
+          <ion-col size="3" class="font-sans text-lg"> <span class="font-semibold text-[#99e265]">Dibuat oleh</span></ion-col>
+          <ion-col class="font-sans text-lg"> {{theDetail.owned}}</ion-col>
         </ion-row>
         <ion-row>
-          <ion-col class="font-sans text-lg indent-1"> <span class="font-semibold text-[#99e265]">Asal Kota :</span> {{theDetail.town}} </ion-col>
-        </ion-row>
-        <ion-row class="border-b-2 border-[#f6f8fc]">
-          <ion-col class="font-sans text-lg indent-1"> <span class="font-semibold text-[#99e265]">Alamat Lengkap :</span> {{theDetail.address}} </ion-col>
+          <ion-col size="3" class="font-sans text-lg"> <span class="font-semibold text-[#99e265]">Asal Kota</span></ion-col>
+          <ion-col class="font-sans text-lg"> {{theDetail.town}}</ion-col>
         </ion-row>
         <ion-row>
-          <ion-col size="12" class="font-sans text-lg font-semibold indent-1 text-[#99e265]"> Deskripsi : </ion-col>
-          <ion-col class="font-sans"> {{theDetail.description}}</ion-col>
+          <ion-col size="3" class="font-sans text-lg"> <span class="font-semibold text-[#99e265]">Alamat</span></ion-col>
+          <ion-col class="font-sans text-lg"> {{theDetail.address}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" class="font-sans text-lg font-semibold text-[#99e265]"> Deskripsi</ion-col>
+          <ion-col class="font-sans indent-4"> {{theDetail.description}}</ion-col>
         </ion-row>
         <br />
       </ion-col>
@@ -60,7 +63,7 @@
     <ion-row class="bg-white shadow-sm">
       <ion-col>
         <ion-row>
-          <ion-col size="12" class="font-sans text-lg font-semibold indent-1 text-[#99e265]"> Lokasi : </ion-col>
+          <ion-col size="12" class="font-sans text-lg font-semibold indent-1 text-[#99e265]">Lokasi</ion-col>
           <ion-col class="h-96">
             <div class="map" #map></div>
           </ion-col>
@@ -71,7 +74,7 @@
     <ion-row class="bg-white shadow-sm">
       <ion-col>
         <ion-row>
-          <ion-col size="12" class="font-sans text-lg font-semibold indent-1 text-[#99e265]"> Status :</ion-col>
+          <ion-col size="12" class="font-sans text-lg font-semibold indent-1 text-[#99e265]">Status</ion-col>
           <ion-col>
             <canvas #barCanvas style="position: relative; height: 20vh; width: 40vw"> </canvas>
           </ion-col>
@@ -98,7 +101,7 @@
         </ion-button>
       </ion-col>
       <ion-col size="8">
-        <ion-button color="greeny" expand="block" class="h-full">
+        <ion-button color="greeny" expand="block" class="h-full" (click)="share()">
           <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
         </ion-button>
       </ion-col>
