@@ -159,7 +159,7 @@ export class DetailPage implements OnInit {
     await alert.present();
   }
 
-  // laoding map
+  // loading map
   async loadMap() {
     try {
       console.log('im here');

@@ -75,8 +75,6 @@ export class AddPage {
       allowEditing: false,
       resultType: CameraResultType.Base64,
       source: CameraSource.Photos,
-      height: 480,
-      width: 360,
     });
     this.images = image;
     this.showpict = `${'data:text/html;base64,' + image.base64String}`;

@@ -103,7 +103,15 @@ export class ScanModalComponent implements OnInit {
             header: 'Info',
             backdropDismiss: false,
             message: this.temp.messages,
-            buttons: ['tutup'],
+            buttons: [
+              {
+                text: 'Tutup',
+                role: 'confirm',
+                handler: () => {
+                  this.modalCtrl.dismiss();
+                },
+              },
+            ],
           });
           await alert.present();
         }
