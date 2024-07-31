@@ -1,1 +1,1 @@
-THIS IS GOVO APP FOR OWNER
+Ini adalah Program untuk pembuatan aplikasi GoVo
